@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fridge Display</title>
+    <style>
+        body 
+           { background-color: #f0f0f0; }
+            div {border: solid black; border-width: 5px; margin-top: 10px; margin-bottom: 10px; padding: 2px 2px 2px 2px; 
+                width: 75%; }
+
+    </style>
+</head>
+<body>
+    <div id="fridge">
+        <div id="screen">
+            <div id="buttons">
+                <button id="powerButton">Power On</button>
+                <button id="tvButton">TV</button>
+                <button id="browserButton">Browser</button>
+            </div>
+            <div id="clock">12:00 AM</div>
+            <div id="temperature">Temperature: 4°C</div>
+            <div id="content">
+                <img id="display" src="https://via.placeholder.com/350x200" alt="Display">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        powerButton = document.getElementById('powerButton');
+        tvButton = document.getElementById('tvButton');
+        browserButton = document.getElementById('browserButton');
+        display = document.getElementById('display');
+
+        let isPowerOn = false;
+
+        powerButton.addEventListener('click', () => {
+            if (isPowerOn) {
+                display.src = "https://media.istockphoto.com/id/638476236/vector/empty-commercial-fridge-with-shelves-and-opened-doors.jpg?s=612x612&w=0&k=20&c=-aDB6UUu2zZah-emp9dCs1LWjibSQ9B-4mgjZ8DMR4k=";
+                powerButton.innerText = "Power On";
+                isPowerOn = false;
+            } else {
+                display.src = "https://media.istockphoto.com/id/638476236/vector/empty-commercial-fridge-with-shelves-and-opened-doors.jpg?s=612x612&w=0&k=20&c=-aDB6UUu2zZah-emp9dCs1LWjibSQ9B-4mgjZ8DMR4k=";
+                powerButton.innerText = "Power Off";
+                isPowerOn = true;
+            }
+        });
+
+        tvButton.addEventListener('click', () => {
+            display.src = "https://geekflare.com/wp-content/uploads/2022/03/Netflix-Screenshot-1.jpg";
+        });
+
+        browserButton.addEventListener('click', () => {
+            display.src = "https://cdn.grabz.it/images/blog/browser-screenshot.png";
+        });
+
+        // Update the clock (ticking clock)
+        setInterval(() => {
+            now = new Date();
+            time = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = time;
+        }, 1000);
+    </script>
+</body>
+</html>
