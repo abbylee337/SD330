@@ -1,65 +1,221 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fridge Display</title>
-    <style>
-        body 
-           { background-color: #f0f0f0; }
-            div {border: solid black; border-width: 5px; margin-top: 10px; margin-bottom: 10px; padding: 2px 2px 2px 2px; 
-                width: 75%; }
+  <title>Smart Fridge</title>
+  <style>
 
-    </style>
+    body {
+      background-color: #7e91d6;
+      font-family: Arial, sans-serif;
+    }
+
+    .fridge {
+      width: 300px;
+      margin: 50px auto;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
+    .display {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #000;
+      text-align: center;
+      font-size: 20px;
+      background-color: #ffffff;
+    }
+
+    .button {
+      background-color: #eecee8;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .temperature {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .shopping-list {
+      margin-top: 20px;
+    }
+
+    /* CSS for the TV screen */
+    .tv-screen {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <div id="fridge">
-        <div id="screen">
-            <div id="buttons">
-                <button id="powerButton">Power On</button>
-                <button id="tvButton">TV</button>
-                <button id="browserButton">Browser</button>
-            </div>
-            <div id="clock">12:00 AM</div>
-            <div id="temperature">Temperature: 4°C</div>
-            <div id="content">
-                <img id="display" src="https://via.placeholder.com/350x200" alt="Display">
-            </div>
-        </div>
+  <div class="fridge">
+    <div class="display">
+      <button id="powerButton" class="button">Power</button>
+      <div id="timeDisplay"></div>
     </div>
+    <div class="temperature">
+      <span id="temperatureDisplay">72°F</span>
+      <button id="tempSwitch" class="button">Switch</button>
+      <button id="increaseTemp" class="button">+</button>
+      <button id="decreaseTemp" class="button">-</button>
+      <button id="tvScreen" class = "button">TV</button>
+      <button id = "browserScreen" class = "button"> Browser </button>
+      <button id = "musicScreen" class = "button"> Music </button>
+    </div>
+    <div id="weatherDisplay"></div>
+    <div id="timerDisplay"></div>
+    <div class="shopping-list">
+      <h3>Shopping List</h3>
+      <ul id="shoppingList">
+        <li>Eggs</li>
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Apples</li>
+        <li>Butter</li>
+      </ul>
+      <input type="text" id="newItem" placeholder="Add an item">
+      <button id="addItem" class="button">Add Item</button>
+    </div>
+  </div>
+  
+  <div class="tv-screen">
+    <audio id="tvAudio">
+      <source src="/Users/abbylee/Downloads/43052410_dream-harp-06/43052410_dream-harp-06.mp3.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 
-    <script>
-        powerButton = document.getElementById('powerButton');
-        tvButton = document.getElementById('tvButton');
-        browserButton = document.getElementById('browserButton');
-        display = document.getElementById('display');
+  <script>
+    const powerButton = document.getElementById("powerButton");
+    const timeDisplay = document.getElementById("timeDisplay");
+    const temperatureDisplay = document.getElementById("temperatureDisplay");
+    const tempSwitch = document.getElementById("tempSwitch");
+    const increaseTemp = document.getElementById("increaseTemp");
+    const decreaseTemp = document.getElementById("decreaseTemp");
+    const weatherDisplay = document.getElementById("weatherDisplay");
+    const timerDisplay = document.getElementById("timerDisplay");
+    const shoppingList = document.getElementById("shoppingList");
+    const newItem = document.getElementById("newItem");
+    const addItem = document.getElementById("addItem");
+    const tvScreen = document.querySelector(".tv-screen");
+    const tvAudio = document.getElementById("tvAudio");
 
-        let isPowerOn = false;
+    let isOn = false;
+    let is12HourFormat = true;
+    let isFahrenheit = true;
+    let temperature = 30;
+    let timer = 60;
+    let timerInterval;
 
-        powerButton.addEventListener('click', () => {
-            if (isPowerOn) {
-                display.src = "https://media.istockphoto.com/id/638476236/vector/empty-commercial-fridge-with-shelves-and-opened-doors.jpg?s=612x612&w=0&k=20&c=-aDB6UUu2zZah-emp9dCs1LWjibSQ9B-4mgjZ8DMR4k=";
-                powerButton.innerText = "Power On";
-                isPowerOn = false;
-            } else {
-                display.src = "https://media.istockphoto.com/id/638476236/vector/empty-commercial-fridge-with-shelves-and-opened-doors.jpg?s=612x612&w=0&k=20&c=-aDB6UUu2zZah-emp9dCs1LWjibSQ9B-4mgjZ8DMR4k=";
-                powerButton.innerText = "Power Off";
-                isPowerOn = true;
-            }
-        });
-
-        tvButton.addEventListener('click', () => {
+    // Event listeners
+    powerButton.addEventListener("click", togglePower);
+    tempSwitch.addEventListener("click", toggleTemperatureUnit);
+    increaseTemp.addEventListener("click", increaseTemperature);
+    decreaseTemp.addEventListener("click", decreaseTemperature);
+    addItem.addEventListener("click", addNewItem);
+    tvScreen.addEventListener('click', () => {
             display.src = "https://geekflare.com/wp-content/uploads/2022/03/Netflix-Screenshot-1.jpg";
         });
-
-        browserButton.addEventListener('click', () => {
+    browserScreen.addEventListener('click', () => {
             display.src = "https://cdn.grabz.it/images/blog/browser-screenshot.png";
         });
 
-        // Update the clock (ticking clock)
-        setInterval(() => {
-            now = new Date();
-            time = now.toLocaleTimeString();
-            document.getElementById('clock').textContent = time;
-        }, 1000);
+    // Functions
+    function togglePower() {
+      isOn = !isOn;
+      if (isOn) {
+        powerButton.innerHTML = "Power Off";
+        showTime();
+        showTemperature();
+        showWeather();
+        tvScreen.style.display = "block";
+      } else {
+        powerButton.innerHTML = "Power On";
+        timeDisplay.innerHTML = "";
+        temperatureDisplay.innerHTML = "";
+        weatherDisplay.innerHTML = "";
+        timerDisplay.innerHTML = "";
+        tvScreen.style.display = "none";
+        clearInterval(timerInterval);
+      }
+    }
+
+    function showTime() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      if (!is12HourFormat) {
+        hours = hours.toString().padStart(2, "0");
+      } else {
+        hours = (hours % 12 || 12).toString().padStart(2, "0");
+      }
+      minutes = minutes.toString().padStart(2, "0");
+      timeDisplay.innerHTML = `${hours}:${minutes}`;
+    }
+
+    function toggleTemperatureUnit() {
+      isFahrenheit = !isFahrenheit;
+      showTemperature();
+    }
+
+    function showTemperature() {
+      if (isFahrenheit) {
+        temperatureDisplay.innerHTML = `${temperature}°F`;
+      } else {
+        temperatureDisplay.innerHTML = `${Math.round(((temperature - 32) * 5) / 9)}°C`;
+      }
+    }
+
+    function increaseTemperature() {
+      temperature++;
+      showTemperature();
+    }
+
+    function decreaseTemperature() {
+      temperature--;
+      showTemperature();
+    }
+
+    function showWeather() {
+      weatherDisplay.innerHTML = "Weather: Sunny";
+    }
+
+    function startTimer() {
+      timer = 60;
+      timerDisplay.innerHTML = "01:00";
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+      if (timer > 0) {
+        timer--;
+        const minutes = Math.floor(timer / 60).toString().padStart(2, "0");
+        const seconds = (timer % 60).toString().padStart(2, "0");
+        timerDisplay.innerHTML = `${minutes}:${seconds}`;
+      } else {
+        timerDisplay.innerHTML = "00:00";
+        clearInterval(timerInterval);
+        // Add sound alarm here (e.g., play audio)
+        tvAudio.play();
+      }
+    }
+
+    function addNewItem() {
+      const newItemText = newItem.value.trim();
+      if (newItemText !== "") {
+        const newItemElement = document.createElement("li");
+        newItemElement.textContent = newItemText;
+        shoppingList.appendChild(newItemElement);
+        newItem.value = "";
+      }
+    }
+
+    // Initial setup
+    powerButton.innerHTML = "Power On";
+
     </script>
 </body>
 </html>
