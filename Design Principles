@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title> Abigail's Design Principles </title>
+        <style>
+            body{background-color: lavenderblush; color: black;}
+            .floatRight {float: right; width: 43%; border: solid black; border-width: 1px; padding: 5px 5px 5px 5px; margin: 30px 30px 30px 30px;}
+            .floatLeft {float: left; width: 43%; border: solid black; border-width: 1px; padding: 5px 5px 5px 5px; margin: 30px 30px 30px 30px;}
+        </style>
+    </head>
+
+    <body>
+        <h1> Abigail's Design Principles </h1>
+
+        <div id = "group1" class = "floatRight"> 
+            <div id = "div1">
+                <h2> Cultural/Gender Principles </h2>
+                <ul>
+                    <li> Be open to learning and empatheic to different perspectives </li>
+                    <li> Avoid stereotypes! </li>
+                    <li> Think about how users respond to authority </li>
+                    <li> Are people comfortable with uncertainty? </li>
+                </ul>
+            </div>
+            <div id = "div2">
+                <h2> Conceptional Principles </h2>
+                <ul>
+                    <li> Be wary of a poor and erroneous model! </li>
+                    <li> Make sure the mental model and the conceptional model match </li>
+                    <li> Make sure the mental model is from the user's perspective </li>
+                </ul>
+            </div>
+            <div id = "div3">
+                <h2> Cognition Design Principles </h2>
+                <ul>
+                    <li> The Six Cognition Processes </li>
+                    <ul> 
+                        <li> Attention </li>
+                        <li> Perception </li>
+                        <li> Memory </li>
+                        <li> Learning </li>
+                        <li> Reading, Speaking, and Listening </li>
+                        <li> Problem-Solving, Planning, Reason, and Decision-Making </li>
+                    </ul>
+                    <li> Mind Maps are perfect for: </li>
+                    <ul>
+                        <li> Brainstorming and visualizing concepts </li>
+                        <li> Presenting and communicating ideas </li>
+                        <li> Running meetings more effectively </li>
+                        <li> Outlining reports and documents </li>
+                        <li> Simplifying tasks and project management </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <div id = "group2" class = "floatLeft">
+            <div id = "div4">
+                <h2> Key Principles </h2>
+                <ul>    
+                    <li> Visibility </li>
+                    <li> Consistency </li>
+                    <li> Feedback </li>
+                    <li> Constraints </li>
+                    <li> Affordances </li>
+                    <li> Accessibility </li>
+                </ul>
+            </div>
+            <div id = "div5">
+                <h2> Complexity Principles </h2>
+                <ul>
+                    <li> Discover what someone likes, enjoys or wants by understanding what they don't like </li>
+                    <li> Icons can mean different things to different people </li>
+                    <li> Complexity is necessary when apps have a lot of functionality </li>
+                    <li> Create limitations on how simple you make your app! </li>
+                </ul>
+            </div>
+            <div id = "div6">
+                <h2> Emotional/Accessibility/Error Principles </h2>
+                <ul>
+                    <li> Have empathy for your users! </li>
+                    <li> Too much feedback can be a problem </li>
+                    <li> Think ahead to what kinds of mistakes people may make </li>
+                    <li> Allow for error reporting </li>
+                    <li> Make sure your app is perceivable, operable, robust, and understandable </li>
+                    <li> Be considerate when designing for users with different disabilities </li>
+                </ul>
+                
+            </div>
+            <div id = "div7">
+                <h2> Human Center Design Principles </h2>
+                <ul>
+                    <li> Put human needs, capabilities, and behavior first </li>
+                    <li> Start with an understanding of psychology and technology </li>
+                    <li> Use affordances and signifiers! </li>
+                    <li> Provide discoverability </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <hr>
+            <small> &copy; A. Lee, October 23, 2023 </small>
+        </footer>
+    </body>
+</html>
