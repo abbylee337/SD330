@@ -1,0 +1,204 @@
+{
+    "courses": [
+        {
+            "course_name": "Introduction to Programming",
+            "subject": "CMPT",
+            "course_number": "120L",
+            "course_section": 111,
+            "credits": 3,
+            "instructor" : "Matthew Johnson",
+
+            "books": [
+                {
+                    "title": "Introduction to Programming",
+                    "author": "Nick Samoylov",
+                    "isbn": 9781788839129,
+                    "published_year": 2018,
+                    "publisher": "Packt Publishing"
+                },
+                {
+                    "title": "Introduction to Programming in Python: An Interdisciplinary Approach, 1st edition",
+                    "author": "Robert Sedgewick",
+                    "isbn": 9780134076430,
+                    "published_year": 2015,
+                    "publisher": "Addison-Wesley Professional"
+                }
+            ]
+        },
+        {
+            "course_name": "Business & Society",
+            "subject": "BUS",
+            "course_number": "202L",
+            "course_section": 111,
+            "credits": 3,
+            "instructor" : "Michael Bell",
+
+            "books": [
+                {
+                    "title": "Business & Society: A Strategic Approach to Social Responsibility & Ethics",
+                    "author": "O.C. Ferrell",
+                    "isbn": 9781948426534,
+                    "published_year": 2023,
+                    "publisher": "Sage"
+                },
+                {
+                    "title": "Law, Business, and Society",
+                    "author": "Tony McAdams",
+                    "isbn": 1260247791,
+                    "published_year": 2022,
+                    "publisher": "Mc Graw Hill"
+                }
+            ]
+        },
+        {
+            "course_name": "Discrete Mathematics",
+            "subject": "MATH",
+            "course_number": "205L",
+            "course_section": 111,
+            "credits": 4,
+            "instructor" : "Malick Ndiaye",
+
+            "books": [
+                {
+                    "title": "Essentials of Discrete Mathematics",
+                    "author": "David J. Hunter",
+                    "isbn": 9781284184761,
+                    "published_year": 2022,
+                    "publisher": "Jones & Bartlett Learning"
+                },
+                {
+                    "title": "Discrete Mathematics and Its Applications",
+                    "author": "Kenneth H. Rosen",
+                    "isbn": 1260091996,
+                    "published_year": 2018,
+                    "publisher": "Mc Graw Hill"
+                }
+            ]
+        },
+        {
+            "course_name": "Linear Algebra",
+            "subject": "MATH",
+            "course_number": "210L",
+            "course_section": 111,
+            "credits": 3,
+            "instructor" : "Joseph Kirtland",
+
+            "books": [
+                {
+                    "title": "Introduction to Linear Algebra",
+                    "author": "Gilbert Strang",
+                    "isbn": 1733146679,
+                    "published_year": 2023,
+                    "publisher": "Wellesley-Cambridge Press"
+                },
+                {
+                    "title": "Linear Algebra Done Right",
+                    "author": "Sheldon Axler",
+                    "isbn": 3319110799,
+                    "published_year": 2014,
+                    "publisher": "Springer"
+                }
+            ]
+        },
+        {
+            "course_name": "Human Nutrition",
+            "subject": "BIOL",
+            "course_number": "203L",
+            "course_section": 111,
+            "credits": 3,
+            "instructor" : "Kristin Dragos",
+
+            "books": [
+                {
+                    "title": "Understanding Nutrition",
+                    "author": "Eleanor Noss Whitney",
+                    "isbn": 1285874340,
+                    "published_year": 2015,
+                    "publisher": "Cengage Learning"
+                },
+                {
+                    "title": "Advanced Nutrition and Human Metabolism",
+                    "author": "Sareen S. Gropper",
+                    "isbn": 1305627857,
+                    "published_year": 2017,
+                    "publisher": "Cengage Learning"
+                }
+            ]
+        },
+        {
+            "course_name": "Basic Drawing",
+            "subject": "ART",
+            "course_number": "110N",
+            "course_section": 114,
+            "credits": 3,
+            "instructor" : "Carl Grauer",
+
+            "books": [
+                {
+                    "title": "Design Basics",
+                    "author": "Stephen Pentak",
+                    "isbn": 9781285858227,
+                    "published_year": 2015,
+                    "publisher": "Cengage Learning"
+                },
+                {
+                    "title": "The Fundamentals of Drawing: A Complete Professional Course for Artists",
+                    "author": "Barrington Barber",
+                    "isbn": 1398802492,
+                    "published_year": 2021,
+                    "publisher": "Sirius"
+                }
+            ]
+        },
+        {
+            "course_name": "Management Information Systems",
+            "subject": "CMPT",
+            "course_number": "300L",
+            "course_section": 111,
+            "credits": 3,
+            "instructor" : "Alexander Macur",
+
+            "books": [
+                {
+                    "title": "Strategic Information Management: Theory and Practice",
+                    "author": "Robert D. Galliers",
+                    "isbn": 10367252511,
+                    "published_year": 2020,
+                    "publisher": "Routledge"
+                },
+                {
+                    "title": "Management Information Systems for the Information Age",
+                    "author": "Stephen Haag",
+                    "isbn": 9780073376851,
+                    "published_year": 2012,
+                    "publisher": "Mc Graw Hill"
+                }
+            ]
+        },
+        {
+            "course_name": "Public Presentations",
+            "subject": "COM",
+            "course_number": "101L",
+            "course_section": 115,
+            "credits": 3,
+            "instructor" : "Sandra Slokenbergs",
+
+            "books": [
+                {
+                    "title": "Public Relations Theory: Application and Understanding",
+                    "author": "Brigitta R. Brunner",
+                    "isbn": 1119373158,
+                    "published_year": 2019,
+                    "publisher": "Wiley-Blackwell"
+                },
+                {
+                    "title": "Beyond Bullet Points: Using PowerPoint to tell a compelling story that gets results",
+                    "author": "Cliff Atkinson",
+                    "isbn": 1509305530,
+                    "published_year": 2018,
+                    "publisher": "Microsoft Press"
+                }
+            ]
+        }
+    ]
+}
