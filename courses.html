@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FoxBooks - Courses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="foxbooks.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="404page.html">On Campus News</a></li>
+                <li><a href="404page.html">Rent or Buy</a></li>
+                <li><a href="404page.html">Order</a></li>
+                <li><a href="404page.html">Store</a></li>
+                <li><a href="404page.html">About Us</a></li>
+                <li><a href="404page.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="breadcrumbs">
+            <a href="foxbooks.html">Home</a> > <a href="courses.html">Courses</a>
+        </div>
+    </header>
+
+    <main>
+        <h1 style="margin-left: 20px;">Current Courses:</h1>
+        <ul id="coursesList">
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; Abigail Lee - FoxBooks 2023.</p>
+        <p><a href="404page.html">Terms of Service</a> | <a href="404page.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://abbylee337.github.io/SD330/foxbooks.json');
+                const data = await response.json();
+                const coursesList = document.getElementById('coursesList');
+                let coursesHtml = '';
+
+                data.courses.forEach(course => {
+                    coursesHtml += `<li>
+                            <h3><a href="bookCourses.html?=${course}">${course.course_name}</a></h3>
+                            <p><strong>Subject:</strong> ${course.subject}</p>
+                            <p><strong>Course Number:</strong> ${course.course_number}</p>
+                            <p><strong>Course Section:</strong> ${course.course_section}</p>
+                            <p><strong>Instructor:</strong> ${course.instructor}</p>
+                            <p><strong>Credits:</strong> ${course.credits}</p>
+                          </li>`;
+                });
+
+                coursesList.innerHTML = coursesHtml;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    </script>
+
+</body>
+
+</html>

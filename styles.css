@@ -1,0 +1,166 @@
+body {
+    font-family: 'Courier';
+    background-color: lightgray;
+    padding-top: 100px;
+    border-radius: 2px;
+}
+
+p {
+    color: black;
+}
+
+h1 {
+    color: black;
+}
+
+h2 {
+    color: white;
+}
+
+.home-link {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 0.8 2.5;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.home-link:hover {
+    background-color: black;
+}
+
+#coursesList {
+    list-style-type: none;
+    padding: 10px;
+    margin: 20px;
+    font-size: 1.2em;
+    color: #000000;
+    border-radius: 2px;
+    max-width: 40%;
+}
+
+#coursesList li {
+    background-color: #f9f9f9;
+    border: 1.5px solid grey;
+    padding: 10px 15px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+#booksContainer {
+    margin: 20px;
+    padding: 10px;
+    border: 1.5px solid grey;
+    background-color: #f9f9f9;
+    max-width: 40%;
+}
+
+#booksContainer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#booksContainer li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+    background-color: #fff;
+}
+
+/* Styling breadcrumb */
+#breadcrumbs {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-bottom: 2px solid grey;
+    z-index: 999;
+    padding: 10px 0;
+    text-align: left;
+}
+
+#breadcrumbs a {
+    color: grey;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    border-bottom: 2px solid lightpink;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: black; /* Change text color */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 0;
+    margin: 4px;
+    background-color: lightpink; /* Change background color */
+    transition: background-color 0.3s;
+}
+
+nav li a:hover {
+    background-color: lightpink; /* Change hover background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow on hover */
+    color: white; /* Change text color on hover */
+}
+
+
+nav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Footer styling */
+footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    color: white;
+    z-index: 500;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
